@@ -268,7 +268,7 @@
                                 class="d-flex flex-column align-items-center justify-content-center h-100 py-5 text-center">
                                 <i class="bx bx-folder-open bx-lg text-muted mb-2"></i>
                                 <p class="text-muted mb-3" style="font-size:.875rem;">No categories yet.</p>
-                                <a href="{{ route('image-categories.create') }}" class="btn btn-sm btn-primary">
+                                <a href="{{ route('categories.index') }}" class="btn btn-sm btn-primary">
                                     <i class="bx bx-plus me-1"></i>Create First Category
                                 </a>
                             </div>
