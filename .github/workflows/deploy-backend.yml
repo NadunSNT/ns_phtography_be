@@ -13,20 +13,10 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Setup PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: '8.3'
-          extensions: mbstring, bcmath, ctype, fileinfo, json, openssl, pdo_mysql, tokenizer, xml, curl, zip
-          tools: composer:v2
-
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
-
-      - name: Install Composer dependencies
-        run: composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist
 
       - name: Install Node dependencies
         run: npm ci
@@ -39,7 +29,7 @@ jobs:
           cat > .env <<EOF
           APP_NAME="${{ secrets.APP_NAME }}"
           APP_ENV=production
-          APP_KEY=
+          APP_KEY=${{ secrets.APP_KEY }}
           APP_DEBUG=false
           APP_URL=${{ secrets.APP_URL }}
 
@@ -70,10 +60,10 @@ jobs:
           CACHE_STORE=database
 
           MAIL_MAILER=smtp
-          MAIL_HOST=sandbox.smtp.mailtrap.io
-          MAIL_PORT=2525
-          MAIL_USERNAME=85fbbef1d20205
-          MAIL_PASSWORD=34b05b66669393
+          MAIL_HOST=${{ secrets.MAIL_HOST }}
+          MAIL_PORT=${{ secrets.MAIL_PORT }}
+          MAIL_USERNAME=${{ secrets.MAIL_USERNAME }}
+          MAIL_PASSWORD=${{ secrets.MAIL_PASSWORD }}
           MAIL_ENCRYPTION=tls
           MAIL_FROM_ADDRESS="no-reply@nsphotography.com"
           MAIL_FROM_NAME="NS Photography"
@@ -86,15 +76,6 @@ jobs:
 
           VITE_APP_NAME="${{ secrets.APP_NAME }}"
           EOF
-
-      - name: Laravel optimize before deploy
-        run: |
-          php artisan config:clear
-          php artisan route:clear
-          php artisan view:clear
-          php artisan config:cache
-          php artisan route:cache
-          php artisan view:cache
 
       - name: Deploy Laravel to cPanel
         uses: SamKirkland/FTP-Deploy-Action@v4.4.0
@@ -110,6 +91,7 @@ jobs:
             **/.git*
             **/.github/**
             **/node_modules/**
+            **/vendor/**
             **/tests/**
             **/.env.example
 
@@ -123,7 +105,8 @@ jobs:
           script: |
             cd /home/nsphhaap/api.nsphotographystudio.com
 
-            php artisan key:generate
+            composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist
+
             php artisan migrate --force
             php artisan storage:link || true
 
