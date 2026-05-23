@@ -52,7 +52,7 @@ jobs:
           SESSION_LIFETIME=120
           SESSION_ENCRYPT=false
           SESSION_PATH=/
-          SESSION_DOMAIN=${{ secrets.SESSION_DOMAIN }}
+          SESSION_DOMAIN=
 
           BROADCAST_CONNECTION=log
           FILESYSTEM_DISK=local
