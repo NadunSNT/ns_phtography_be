@@ -111,19 +111,20 @@
                             <div data-i18n="Documentation">Categories</div>
                         </a>
                     </li>
-                </ul>
-                <ul>
-                    <a class="dropdown-item-side" href="{{ route('profile.edit') }}">
-                        <i class="bx bx-user me-2"></i>
-                        <span class="align-middle">My Profile</span>
-                    </a>
-                </ul>
-                <ul>
-                    <a class="dropdown-item-side" href="{{ route('logout') }}"
-                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                        <i class="bx bx-power-off me-2"></i>
-                        <span class="align-middle">Log Out</span>
-                    </a>
+                    <li class="menu-item {{ request()->routeIs('profile.edit') ? 'active' : '' }}">
+                        <a href="{{ route('profile.edit') }}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-user"></i>
+                            <div>My Profile</div>
+                        </a>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="{{ route('logout') }}" class="menu-link"
+                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            <i class="menu-icon tf-icons bx bx-power-off"></i>
+                            <div>Log Out</div>
+                        </a>
+                    </li>
                 </ul>
             </aside>
             <!-- / Menu -->
@@ -182,19 +183,19 @@
                         </ul>
                     </div> --}}
                     <!-- Header -->
-        <div class="d-flex align-items-center justify-content-between mb-2">
-    
-    <div>
-        <h4 class="fw-bold mb-1" style="font-size:1.0rem;">
-            Welcome {{ auth()->user()->name }}!
-        </h4>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
 
-        <p class="text-muted mb-0" style="font-size:0.8rem; color: #6a839e !important;">
-            {{ now()->format('l, F j, Y') }}
-        </p>
-    </div>
+                        <div>
+                            <h4 class="fw-bold mb-1" style="font-size:1.0rem;">
+                                Welcome {{ auth()->user()->name }}!
+                            </h4>
 
-</div>
+                            <p class="text-muted mb-0" style="font-size:0.8rem; color: #6a839e !important;">
+                                {{ now()->format('l, F j, Y') }}
+                            </p>
+                        </div>
+
+                    </div>
                 </nav>
                 <!-- / Navbar -->
                 <!-- Content wrapper -->
