@@ -3,7 +3,7 @@
     <div class="container-xxl flex-grow-1 container-p-y">
 
         <!-- Header -->
-        <div class="d-flex align-items-center justify-content-between mb-4">
+        {{-- <div class="d-flex align-items-center justify-content-between mb-4">
             <h4 class="fw-bold mb-0" style="font-size:1.75rem;">
                 Welcome back, {{ auth()->user()->name }}
             </h4>
@@ -11,7 +11,7 @@
             <p class="text-muted mb-0" style="font-size:1.0rem; color: #6a839e !important">
                 {{ now()->format('l, F j, Y') }}
             </p>
-        </div>
+        </div> --}}
 
         <!-- ─── STAT CARDS ─── -->
         <div class="row g-4 mb-4">

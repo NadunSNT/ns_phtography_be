@@ -130,7 +130,7 @@
             <!-- Layout page -->
             <div class="layout-page">
                 <!-- Navbar -->
-                {{-- <nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
+                <nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
                     id="layout-navbar">
                     <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
                         <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
@@ -138,7 +138,7 @@
                         </a>
                     </div>
 
-                    <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
+                    {{-- <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
 
 
                         <ul class="navbar-nav flex-row align-items-center ms-auto">
@@ -180,8 +180,22 @@
                             </li>
                             <!--/ User -->
                         </ul>
-                    </div>
-                </nav> --}}
+                    </div> --}}
+                    <!-- Header -->
+        <div class="d-flex align-items-center justify-content-between mb-2">
+    
+    <div>
+        <h4 class="fw-bold mb-1" style="font-size:1.0rem;">
+            Welcome {{ auth()->user()->name }}!
+        </h4>
+
+        <p class="text-muted mb-0" style="font-size:0.8rem; color: #6a839e !important;">
+            {{ now()->format('l, F j, Y') }}
+        </p>
+    </div>
+
+</div>
+                </nav>
                 <!-- / Navbar -->
                 <!-- Content wrapper -->
                 <div class="content-wrapper">
