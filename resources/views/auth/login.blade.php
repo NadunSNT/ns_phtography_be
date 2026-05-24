@@ -573,9 +573,9 @@
                     <div class="card-footer">
                         <div class="footer-left">
                             @if (Route::has('password.request'))
-                                <a class="forgot-link" href="{{ route('password.request') }}">
+                                {{-- <a class="forgot-link" href="{{ route('password.request') }}">
                                     Forgot password?
-                                </a>
+                                </a> --}}
                             @endif
 
                             <p class="register-prompt">
