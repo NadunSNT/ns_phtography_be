@@ -1,3 +1,6 @@
+@php
+    use Illuminate\Support\Str;
+@endphp
 <x-app-layout>
     {{-- Success Alert --}}
     @if (session('success'))
@@ -86,7 +89,7 @@
     <!-- Striped Rows -->
     <div class="card">
         <div class="table-responsive text-nowrap">
-            
+
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -109,7 +112,7 @@
                             </td>
 
                             <td>
-                                {{ $category->description }}
+                                {{ Str::words($category->description, 10, '...') }}
                             </td>
 
                             <td>
@@ -228,7 +231,7 @@
         const status = button.getAttribute('data-status');
 
         if (status === 'delete' && itemCount > 0) {
-            event.preventDefault(); 
+            event.preventDefault();
 
             const container = document.getElementById('deleteErrorContainer');
             container.innerHTML = `
