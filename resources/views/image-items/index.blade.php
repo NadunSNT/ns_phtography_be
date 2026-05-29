@@ -558,10 +558,10 @@
                                 </span>
 
                                 <!-- Captured Date -->
-                                <div class="vim-date-row">
+                                {{-- <div class="vim-date-row">
                                     <i class="bi bi-calendar3"></i>
                                     <span id="modalDate"></span>
-                                </div>
+                                </div> --}}
 
                                 <!-- Status -->
                                 <span class="vim-status active" id="modalStatus"></span>
@@ -673,7 +673,7 @@
                         data.image_desc_short ?? '-';
                     document.getElementById('modalLong').textContent =
                         data.image_desc_long ?? '-';
-                    document.getElementById('modalDate').textContent = data.capture_date;
+                    // document.getElementById('modalDate').textContent = data.capture_date;
                     document.getElementById('modalStatus').textContent = data.status;
 
                     // ✅ CORRECT EDIT URL (Laravel-safe)

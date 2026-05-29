@@ -89,7 +89,7 @@ class ImageItemController extends Controller
             'image_desc_short' => 'nullable|string',
             'image_desc_long' => 'nullable|string',
             'status' => 'required|in:active,delete',
-            'capture_date' => 'required|date|before_or_equal:today',
+            'capture_date' => 'nullable|date|before_or_equal:today',
             'image' => 'required|image|mimes:jpg,jpeg,png,webp|max:5120',
         ]);
 
@@ -152,7 +152,7 @@ class ImageItemController extends Controller
             'image_desc_short' => 'nullable|string',
             'image_desc_long' => 'nullable|string',
             'status' => 'required|in:active,delete',
-            'capture_date' => 'required|date|before_or_equal:today',
+            'capture_date' => 'nullable|date|before_or_equal:today',
             'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:5120',
         ]);
 
