@@ -260,15 +260,15 @@
                                     <input type="text" class="form-control" name="image_desc_short"
                                         value="{{ $item->image_desc_short ?? '' }}" id="shrt-desc" />
                                 </div>
-                                <div class="mb-3">
+                                {{-- <div class="mb-3">
                                     <label class="form-label" for="basic-default-date">Captured Date</label>
                                     <div class="input-group input-group-merge">
                                         <input type="date" id="basic-default-date" name="capture_date"
                                             class="form-control" value="{{ $item->capture_date ?? '' }}"
                                             aria-describedby="basic-default-date2" max="{{ date('Y-m-d') }}"
-                                            required />
+                                             />
                                     </div>
-                                </div>
+                                </div> --}}
 
                                 <div class="mb-3">
                                     <label class="form-label" for="img-desc">Description</label>
