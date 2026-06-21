@@ -37,7 +37,7 @@ class ImageItemController extends Controller
         }
 
         $items = $query
-            ->orderBy('ii_id', 'asc')
+            ->orderBy('ii_id', 'desc')
             ->paginate(10)
             ->withQueryString(); // VERY important
 
@@ -64,7 +64,7 @@ class ImageItemController extends Controller
         }
 
         $items = $query
-            ->orderBy('ii_id', 'asc')
+            ->orderBy('ii_id', 'desc')
             ->paginate(10);
 
         return response()->json([
